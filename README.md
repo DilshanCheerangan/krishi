@@ -1,4 +1,4 @@
-# AGNI – Adaptive Geo-secured Network for Intelligent Agriculture
+# KRISHI – Knowledge-driven Real-time Intelligent System for Harvest Improvement
 
 Production-style, hackathon-friendly MVP: login, image upload, OpenCV-based vegetation/stress analysis, trust score, and advisory.
 
@@ -25,7 +25,7 @@ Production-style, hackathon-friendly MVP: login, image upload, OpenCV-based vege
 2. **Start the backend** (leave this window open):
    ```powershell
    cd "c:\Users\Tony Stark\Desktop\projects\agni\backend"
-   python -m uvicorn main:app --reload
+   
    ```
    Wait until you see *Application startup complete*.
 
@@ -39,7 +39,7 @@ Production-style, hackathon-friendly MVP: login, image upload, OpenCV-based vege
    Go to **http://localhost:8080**
 
 5. **Log in:**  
-   Username: `agni` · Password: `farm2025`  
+   Username: `krishi` · Password: `farm2025`  
    Then upload a field/crop image and click **Analyze image**.
 
 ---
@@ -95,12 +95,12 @@ If the backend is at `http://127.0.0.1:8000`, login and analyze should still wor
 ### 4. Test login and analyze
 
 - **Login**  
-  - Username: `agni`  
+  - Username: `krishi`  
   - Password: `farm2025`  
   - In the UI: enter credentials and click “Log in”.  
   - Or with curl:
     ```bash
-    curl -X POST http://127.0.0.1:8000/login -H "Content-Type: application/json" -d "{\"username\":\"agni\",\"password\":\"farm2025\"}"
+    curl -X POST http://127.0.0.1:8000/login -H "Content-Type: application/json" -d "{\"username\":\"krishi\",\"password\":\"farm2025\"}"
     ```
   - Copy the `access_token` from the response.
 
@@ -127,7 +127,7 @@ For **accurate semantic masking** (roads, buildings, clear land, greenery, fores
    Or set `BUILDING_SEGMENTATION_HF_TOKEN` instead of `HF_TOKEN` (same effect).
 3. **Analyze an image** as usual. If the token is set, the backend calls the **SegFormer ADE20k** model (150 classes) once per image and produces:
    - **Land-use mask** with 6 classes: **road** (gray), **building** (brown), **water** (blue), **clear land** (tan), **greenery** (green), **forest** (dark green).
-   - **Percentages** for each class in the API response (`water_percentage`, `road_percentage`, `building_percentage`, `clear_land_percentage`, `greenery_percentage`, `forest_percentage` when `semantic_masking_used` is `true`).
+   - **Percentages** for each class in the API response (`water_percentage`, `road_percentage`, `building_percentage`, `clear_land_percentage`, `greenepython -m uvicorn main:app --reloadry_percentage`, `forest_percentage` when `semantic_masking_used` is `true`).
 
 ### When no token is set
 
