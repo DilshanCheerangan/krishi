@@ -18,8 +18,8 @@ from fastapi.responses import Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
-from auth import verify_user, create_access_token, verify_token
-from image_processor import (
+from backend.auth import verify_user, create_access_token, verify_token
+from backend.image_processor import (
     analyze_image,
     get_segmentation_preview,
     get_overlay_mask,
@@ -32,8 +32,8 @@ from image_processor import (
     clip_cultivated_mask_by_boundary,
     get_semantic_masks_ade20k,
 )
-from trust_engine import get_advisory
-from crop_database import recommend_crops, get_season, get_season_display_name
+from backend.trust_engine import get_advisory
+from backend.crop_database import recommend_crops, get_season, get_season_display_name
 
 # Directory for saving cultivated overlay images (relative to backend)
 OUTPUTS_DIR = Path(__file__).resolve().parent / "outputs"
